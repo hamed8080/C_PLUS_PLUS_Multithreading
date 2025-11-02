@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AC40B1BB2EB7691300CA3252 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = AC40B1B32EB7691300CA3252 /* Makefile */; };
+		AC40B1BC2EB7691300CA3252 /* FetchDataFromServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC40B1B82EB7691300CA3252 /* FetchDataFromServer.cpp */; };
+		AC40B1BD2EB7691300CA3252 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC40B1B92EB7691300CA3252 /* main.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		AC256F492EB602E300692AC4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,15 +26,14 @@
 
 /* Begin PBXFileReference section */
 		AC256F4B2EB602E300692AC4 /* Multithreading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Multithreading; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC40B1B22EB7691300CA3252 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		AC40B1B32EB7691300CA3252 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		AC40B1B42EB7691300CA3252 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AC40B1B52EB7691300CA3252 /* example.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = example.txt; sourceTree = "<group>"; };
+		AC40B1B72EB7691300CA3252 /* FetchDataFromServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FetchDataFromServer.hpp; sourceTree = "<group>"; };
+		AC40B1B82EB7691300CA3252 /* FetchDataFromServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FetchDataFromServer.cpp; sourceTree = "<group>"; };
+		AC40B1B92EB7691300CA3252 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		AC256F4D2EB602E300692AC4 /* Multithreading */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Multithreading;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AC256F482EB602E300692AC4 /* Frameworks */ = {
@@ -44,7 +49,10 @@
 		AC256F422EB602E300692AC4 = {
 			isa = PBXGroup;
 			children = (
-				AC256F4D2EB602E300692AC4 /* Multithreading */,
+				AC40B1BA2EB7691300CA3252 /* src */,
+				AC40B1B22EB7691300CA3252 /* CMakeLists.txt */,
+				AC40B1B32EB7691300CA3252 /* Makefile */,
+				AC40B1B42EB7691300CA3252 /* README.md */,
 				AC256F4C2EB602E300692AC4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +63,25 @@
 				AC256F4B2EB602E300692AC4 /* Multithreading */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AC40B1B62EB7691300CA3252 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC40B1B52EB7691300CA3252 /* example.txt */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		AC40B1BA2EB7691300CA3252 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				AC40B1B62EB7691300CA3252 /* resources */,
+				AC40B1B72EB7691300CA3252 /* FetchDataFromServer.hpp */,
+				AC40B1B82EB7691300CA3252 /* FetchDataFromServer.cpp */,
+				AC40B1B92EB7691300CA3252 /* main.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				AC256F4D2EB602E300692AC4 /* Multithreading */,
 			);
 			name = Multithreading;
 			packageProductDependencies = (
@@ -120,6 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC40B1BB2EB7691300CA3252 /* Makefile in Sources */,
+				AC40B1BC2EB7691300CA3252 /* FetchDataFromServer.cpp in Sources */,
+				AC40B1BD2EB7691300CA3252 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +274,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-lcurl",
+					"-pthread",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -257,7 +298,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+					/opt/homebrew/include,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-lcurl",
+					"-pthread",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
