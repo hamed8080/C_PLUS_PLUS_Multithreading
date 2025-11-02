@@ -21,9 +21,9 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 # g++ main.cpp FetchDataFromServer.cpp \
-#    -I/opt/homebrew/include \
-#   -L/opt/homebrew/lib \
-#    -lcurl \
-#   -std=c++17 \
+#  -I/opt/homebrew/include \
+#  -L/opt/homebrew/lib \
+#  -lcurl \
+#  -std=c++17 \
 #  -pthread \
 #  -o main
