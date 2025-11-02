@@ -27,9 +27,9 @@ void readFile(const std::string& fileName) {
     }
 }
 
-void readFileExample() {
+void readFileExample(const string& filePath) {
     /// Use file full path if run through the Xcode. like /Users/your_user/Desktop/...
-    thread t(readFile, "example.txt"); // Compiles now!
+    thread t(readFile, filePath); // Compiles now!
 
     cout << "Continue on the main thread" << endl;
 
@@ -45,8 +45,24 @@ void readSeverJsonSimpleThreadExample() {
 }
 
 int main(int argc, const char * argv[]) {
-    // readFileExample(); 
-    readSeverJsonSimpleThreadExample();
+    if (argc < 2) {
+        cerr << "Usage: " << argv[0] << " <file_path>" << endl;
+        return 1;
+    }
+    
+    int type = stoi(argv[1]);
+
+    switch (type) {
+        case 1:
+        {
+            string filePath = argv[2];
+            readFileExample(filePath);
+            break;
+        }
+        case 2:
+            readSeverJsonSimpleThreadExample();
+            break;
+    }
     return 0;
 }
 

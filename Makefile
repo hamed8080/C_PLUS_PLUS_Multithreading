@@ -13,9 +13,13 @@ $(BUILD_DIR)/main: $(SRC_DIR)/main.cpp
 	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $(SRC_DIR)/main.cpp $(SRC_DIR)/FetchDataFromServer.cpp -o $(BUILD_DIR)/main	
 
-run: $(TARGET)
-	@echo "Running program with file: $(RESOURCE_DIR)/Test.txt"
-	@$(TARGET) $(RESOURCE_DIR)/example.txt
+run_read_file: $(TARGET)
+	@echo "Running the program with resources/example.txt file"
+	@$(TARGET) 1 $(RESOURCE_DIR)/example.txt
+	
+run_fetch_server_simple_thread: $(TARGET)
+	@echo "Running the program"
+	@$(TARGET) 2
 
 clean:
 	rm -rf $(BUILD_DIR)

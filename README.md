@@ -17,8 +17,11 @@ This project demonstrates C++ multithreading concepts through practical examples
 
 2. Build and run the project:
    ```bash
-   make run
+   make option
    ```
+### Options:
+    1- run_read_file: Read from the example.txt file with a normal thread.
+    2- run_fetch_server_simple_thread: Read a JSON url and parse it with normal thread.
 
 3. To clean build files:
    ```bash
