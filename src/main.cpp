@@ -54,6 +54,9 @@ int main(int argc, const char * argv[]) {
 
     switch (type) {
         case 1:
+            // C++ does not allow you to declare and init a variable inside a case.
+            // That's the reason why you should create a new ``scope`` to create a variable, unless you will ran into
+            // a compile issue.
         {
             string filePath = argv[2];
             readFileExample(filePath);
