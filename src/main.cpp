@@ -9,6 +9,8 @@
 #include <fstream>
 #include <string>
 #include <thread>
+#include <future>
+#include <coroutine>
 #include "FetchDataFromServer.hpp"
 
 using namespace std;
@@ -39,9 +41,19 @@ void readFileExample(const string& filePath) {
 }
 
 void readSeverJsonSimpleThreadExample() {
+    cout << "Fetching JSON with simple thread in the background...\n";
     thread t(fetchAndParseJson, "https://jsonplaceholder.typicode.com/todos/1");
-    cout << "Fetching JSON in the background...\n";
     t.join();
+}
+
+void readSeverJsonModernAsyncExample() {
+    auto future = async(launch::async, fetchAndParseJson, "https://jsonplaceholder.typicode.com/todos/1");
+    try {
+        cout << "Fetching JSON with modern async in the background...\n";
+        future.get();
+    } catch (const exception& e) {
+        cerr << "Error fetching JOSN\n";
+    }
 }
 
 int main(int argc, const char * argv[]) {
@@ -64,6 +76,9 @@ int main(int argc, const char * argv[]) {
         }
         case 2:
             readSeverJsonSimpleThreadExample();
+            break;
+        case 3:
+            readSeverJsonModernAsyncExample();
             break;
     }
     return 0;

@@ -20,6 +20,10 @@ run_read_file: $(TARGET)
 run_fetch_server_simple_thread: $(TARGET)
 	@echo "Running the program"
 	@$(TARGET) 2
+	
+run_fetch_server_modern_async_thread: $(TARGET)
+	@echo "Running the program with modern c++ async"
+	@$(TARGET) 3
 
 clean:
 	rm -rf $(BUILD_DIR)
